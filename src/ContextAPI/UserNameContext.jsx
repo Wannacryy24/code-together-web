@@ -6,6 +6,7 @@ const UserNameContextProvider = ({ children }) => {
   const [userName, setUserName] = useState('');
   const [showModal, setShowModal] = useState(false);
 
+  
   useEffect(() => {
     const storedName = localStorage.getItem('user_name');
     if (storedName) {

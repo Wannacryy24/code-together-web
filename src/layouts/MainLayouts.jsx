@@ -4,6 +4,7 @@ import { EditorComp } from "../pages/Editor";
 import { Route, Routes } from "react-router-dom";
 import FeaturesSection from "./Features/FeaturesSection";
 import CodeLanguages from '../layouts/CodeLanguages/CodeLanguages'
+import Footer from "../pages/Footer/Footer";
 
 export const MainLayout = () => {
 
@@ -15,6 +16,7 @@ export const MainLayout = () => {
                     <HomePage/>
                     <CodeLanguages/>
                     <FeaturesSection/>
+                    <Footer/>
                 </>}/>
             <Route path='/room/:id' element={<EditorComp/>}/>
         </Routes>

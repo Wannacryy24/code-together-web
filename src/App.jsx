@@ -15,7 +15,7 @@ function App() {
         <MainLayout/>
 
         {/* <CompaniesSection/> */}
-        <Footer/>
+        
       </BrowserRouter>
   )
 }

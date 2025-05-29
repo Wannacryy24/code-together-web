@@ -10,12 +10,13 @@ export const EditorComp = () => {
     const [code, setCode] = useState("// Write or paste code here...");
     const [socketId, setSocketId] = useState(null);
     
-    const [remoteCursorPos, setRemoteCursorPos] = useState(null);
+    const [remoteCursors, setRemoteCursors] = useState({});
     const [remoteSelection, setRemoteSelection] = useState(null);
 
     const socketRef = useRef(null);
     const editorRef = useRef(null);
 
+    const [users, setUsers] = useState([]);
 
     useEffect(() => {
         // Connect to backend
@@ -27,8 +28,14 @@ export const EditorComp = () => {
 
         socketRef.current.on('connect', () => {
             console.log('Connected to socket server');
-            socketRef.current.emit('join-room', roomId)
+            const username = localStorage.getItem('user_name') || 'Anonymous';
+            socketRef.current.emit('join-room', { roomId, username });
             setSocketId(socketRef.current.id);
+        });
+
+          socketRef.current.on('user-list', (userList) => {
+              console.log('Updated user list:', userList);
+            setUsers(userList);
         });
 
         // Receive code updates
@@ -37,11 +44,14 @@ export const EditorComp = () => {
         });
 
         // Receive remote cursor position
-        socketRef.current.on('cursor-position-update', ({ lineNumber, column, senderId }) => {
-            if (senderId === socketRef.current.id) return; // Ignore self
-            setRemoteCursorPos({ lineNumber, column });
-            console.log('Remote cursor at line:', lineNumber, 'column:', column);
+        socketRef.current.on('cursor-position-update', ({ lineNumber, column, senderId, username }) => {
+            if (senderId === socketRef.current.id) return;
+            setRemoteCursors(prev => ({
+                ...prev,
+                [senderId]: { lineNumber, column, username },
+            }));
         });
+
 
          socketRef.current.on('selection-update', ({ senderId, selection }) => {
             if (senderId === socketRef.current.id) return;
@@ -54,59 +64,36 @@ export const EditorComp = () => {
         };
     }, [roomId]);
 
-    useEffect(() => {
-    if (!editorRef.current || !remoteCursorPos) return;
 
-    const editor = editorRef.current;
+   useEffect(() => {
+  if (!editorRef.current) return;
 
-    // Decoration for remote cursor
-    const decoration = {
-        range: new window.monaco.Range(
-            remoteCursorPos.lineNumber,
-            remoteCursorPos.column,
-            remoteCursorPos.lineNumber,
-            remoteCursorPos.column
-        ),
-        options: {
-            className: 'remote-cursor',
-            stickiness: window.monaco.editor.TrackedRangeStickiness.NeverGrowsWhenTypingAtEdges,
-        },
-    };
+  const editor = editorRef.current;
 
-    // Apply the decoration
-    const decorations = editor.deltaDecorations([], [decoration]);
+  const decorations = Object.entries(remoteCursors).map(([userId, cursor]) => ({
+    range: new window.monaco.Range(
+      cursor.lineNumber,
+      cursor.column,
+      cursor.lineNumber,
+      cursor.column
+    ),
+    options: {
+      className: 'remote-cursor',
+      hoverMessage: { value: `**${cursor.username}**` }, // 👈 Show username on hover
+      after: {
+        content: `Test`,
+        inlineClassName: 'cursor-label',
+    },
+      stickiness: window.monaco.editor.TrackedRangeStickiness.NeverGrowsWhenTypingAtEdges,
+    }
+  }));
 
-    // Cleanup on position change
-    return () => {
-        editor.deltaDecorations(decorations, []);
-    };
-    }, [remoteCursorPos]);
+  const applied = editor.deltaDecorations([], decorations);
 
-
-    useEffect(() => {
-    if (!editorRef.current || !remoteSelection) return;
-
-    const editor = editorRef.current;
-
-    const decoration = {
-        range: new window.monaco.Range(
-            remoteSelection.startLineNumber,
-            remoteSelection.startColumn,
-            remoteSelection.endLineNumber,
-            remoteSelection.endColumn
-        ),
-        options: {
-            className: 'remote-selection',
-            isWholeLine: false,
-        },
-    };
-
-    const decorations = editor.deltaDecorations([], [decoration]);
-
-    return () => {
-        editor.deltaDecorations(decorations, []);
-    };
-    }, [remoteSelection]);
+  return () => {
+    editor.deltaDecorations(applied, []);
+  };
+}, [remoteCursors]);
 
 
     const handleEditorChange = (value) => {
@@ -145,7 +132,7 @@ export const EditorComp = () => {
     return (
         <div className='editor-main-div'>
             <Editor className='editor'
-                height="90vh" width="95vw" defaultLanguage="javascript" defaultValue="// Write or paste code here..." theme="vs-dark"
+                height="92vh" width="100vw" defaultLanguage="javascript" defaultValue="// Write or paste code here..." theme="vs-dark"
                 value={code} 
                 onChange={handleEditorChange}
                 onMount={handleEditorMount}

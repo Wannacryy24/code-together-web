@@ -36,9 +36,11 @@ const UserNameModal = () => {
           required
           autoFocus
         />
-        <button type="submit">Submit</button>
-        <button type="button" onClick={() => setUserName('')}>Cancel</button>
-        <button type="button" onClick={() => setShowModal(false)}>Close</button>
+        <div className="modal-button-row">
+          <button type="button" onClick={() => setUserName('')}>Clear</button>
+          <button type="submit">Save</button>
+        </div>
+        <button type="button" onClick={() => setShowModal(false)} className="closeBtn">X</button>
       </form>
     </div>
   );
