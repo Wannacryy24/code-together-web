@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+.no-recordings-text{
+  color: var(--main-white);
+  font-size: 31px;
+  line-height: 2;
+  letter-spacing: 0.304rem;
+  font-style: italic;
+  font-weight: 210;
+  font-variation-settings: "opsz" 32;
+}
+
+.recording-card {
+  display: flex;
+  flex-direction: row;
+  height: 40vh;
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.recording-card:hover{
+  border: .15px dashed var(--logo-color);
+  box-shadow: rgba(45, 82, 56, 0.1) 0px 4px 12px;
+  border-radius: 6px;
+}
+
+.recording-screenshot {
+  width: 100%;
+  height: 100%;
+  object-fit:fill;
+  display: block;
+}
+
+.single-session-right {
+  flex: 1;
+  padding: 0rem 1.5rem  1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.recording-info {
+  padding-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-family: 'Inter', sans-serif;
+  color: #222;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.recording-info p {
+  margin: 0.3rem 0;
+}
+
+.recording-card-btn-div {
+  display: flex;
+  gap: 1rem;
+  margin-top: auto;
+}
+
+.delete-button,
+.share-button {
+  flex: 1;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.delete-button:hover {
+  background-color: #ffecec;
+  border-color: #ff4d4d;
+  color: #ff4d4d;
+}
+
+.share-button:hover {
+  background-color: #e8f5ff;
+  border-color: #3399ff;
+  color: #3399ff;
+}
+
+.delete-button img,
+.share-button img {
+  width: 20px;
+  height: 20px;
+}
+
+.sessions-container{
+  padding:0 7vw;
+  width: 100vw;
+}
+
+.sessions-title span{
+  font-family: 'Inter' sans-serif;
+  font-size: 3rem;
+}
+
+.redording-heading{
+  margin: 5vh 0vh;
+}
+
+.recordings-list{
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  width: 100%;
+}
+
+.single-session-left {
+  width: 40%;
+  height: 100%;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.recording-info p span{
+  color: var(--dull-gren);
+}
+
+.document-name-div{
+  font-family: 'Inter' sans-serif;
+}
+
+.document-name-div h1:hover{
+  color: var(--logo-color);
+}
+
+.action-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.2s ease;
+}
+
+.action-button .icon {
+  width: 18px;
+  height: 18px;
+}
+
+.action-button.delete {
+  background-color: #ef4444;
+  color: white;
+}
+
+.action-button.delete:hover {
+  background-color: #dc2626;
+}
+
+.action-button.share {
+  background-color: #f0fdf4;
+  color: #16a34a;
+  border: 1px solid #16a34a;
+}
+
+.action-button.share:hover {
+  background-color: #d1fae5;
+}
+
+
+.gray-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #000;
+  background-color: #e5e7eb; /* light gray */
+  border: none;
+  border-radius: 9999px; /* pill shape */
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.gray-button:hover {
+  background-color: #d1d5db; /* slightly darker on hover */
+}
+
+.gray-button .icon {
+  width: 16px;
+  height: 16px;
+}
+
+
+
+.loading-text{
+  font-family: 'Inter' sans-serif;
+  font-size: 3rem;
+  color: var(--logo-color);
+}
+
+
+.outline-button {
+  background-color: transparent;
+  color: #d4f7c5; /* soft light green */
+  padding: 0.7rem 2rem;
+  border: 2px solid rgba(212, 247, 197, 0.3); /* semi-transparent green border */
+  border-radius: 999px; /* fully rounded button */
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.outline-button:hover {
+  background-color: rgba(212, 247, 197, 0.1);
+  border-color: rgba(212, 247, 197, 0.6);
+}
+
+
+.outline-button2 {
+  background-color: var(--logo-color);
+  color: var(--light-grey); /* soft light green */
+  padding: 0.7rem 2rem;
+  border: 2px solid rgba(212, 247, 197, 0.3); /* semi-transparent green border */
+  border-radius: 999px; /* fully rounded button */
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.outline-button2:hover {
+  background-color: var(--main-white);
+  border-color: rgba(212, 247, 197, 0.6);
+}
+
+
+
+@media (max-width:768px) {
+  .recording-card{
+    flex-direction: column;
+    height: auto;
+    border: 1px solid var(--main-white);
+  }
+  .single-session-left{
+    width: 100%;
+  }
+}

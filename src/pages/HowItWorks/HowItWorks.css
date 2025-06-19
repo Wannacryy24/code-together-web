@@ -1,0 +1,70 @@
+.how-it-works-section {
+  color: #e8ffe4;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.how-it-works-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.how-it-works-title {
+    color: var(--logo-color);
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.how-it-works-subtitle {
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+  color: var(--main-white);
+}
+
+.how-it-works-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.how-it-works-step {
+  background: #1a1a1a;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(100, 255, 100, 0.2);
+}
+
+.step-number {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--logo-color);
+}
+
+.step-title {
+    color: var(--logo-color);
+  font-size: 1.2rem;
+  margin: 10px 0 5px;
+}
+
+.step-description {
+  font-size: 0.95rem;
+  color: var(--main-white);
+}
+
+.how-it-works-cta {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: transparent;
+  color: var(--logo-color);
+  border: 1px solid var(--logo-color);
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.how-it-works-cta:hover {
+  background-color: var(--logo-color);
+  color: var(--main-white);
+}

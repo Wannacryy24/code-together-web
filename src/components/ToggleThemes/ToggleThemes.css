@@ -1,0 +1,22 @@
+.toggle-theme-btn {
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+    color: var(--logo-color);
+}
+
+@media(max-width:768px) {
+    .toggle-theme-btn {
+        padding: 1.5rem 0px;
+        padding-left: 2rem;
+        font-size: 1.25rem;
+        border-bottom: 1px solid var(--main-white);
+        border-radius: 0px;
+    }   
+}

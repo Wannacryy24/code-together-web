@@ -4,7 +4,7 @@ import "./interview.css";
 const InterviewComp = () => {
     return (
         <>
-           <h1 className="feature-heading" id="features">Features</h1>
+           <h1 className="feature-heading" id="features-id-for-scroll">Features</h1>
 
         <div className="container">
             <div className="content">

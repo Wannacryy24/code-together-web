@@ -2,18 +2,26 @@ import "./Home.css";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from 'uuid';
 import { NavContext } from "../../ContextAPI/NavBarContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import { nanoid } from "nanoid";
+import { AuthContext } from "../../ContextAPI/AuthUser";
+import LoginModal from "../../components/LoginModal/LoginModal";
+import { LoginModalContext }from '../../ContextAPI/LoginModalContext'
 
 const HomePage = () => {
-  const {setNav } = useContext(NavContext);
   const navigate = useNavigate();
-  const onShareClick = () => {
-    setNav(false);
-    const id = uuidv4();
-    console.log(id);
-    navigate(`room/${id}`);
-  };
+  const {isUserLogged} = useContext(AuthContext);
+  const { showLoginModal, setShowLoginModal } = useContext(LoginModalContext);
 
+  const onShareClick = () => {
+    if(isUserLogged){
+      const id = nanoid(12);
+      navigate(`${id}`);
+    }
+    else{
+      setShowLoginModal(true)
+    }
+  };
 
   return (
     <div className="hero-container" id='headerId-Div'>
@@ -46,6 +54,7 @@ const HomePage = () => {
     <p className="hero-footer">
         No sign up. Free. Forever <span className="heart">❤️</span>
       </p>
+      {/* {showLoginModal && <LoginModal />} */}
     </div>
   );
 };

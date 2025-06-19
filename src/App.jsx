@@ -1,17 +1,14 @@
-import {BrowserRouter} from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 import './App.css'
 import { MainLayout } from './layouts/MainLayouts'
-import { Header } from './layouts/Header/Header'
-import UserNameModal from './layouts/ModalComponent/UserNameModal'
-
+import { Header2 } from './layouts/Header/Header2'
 function App() {
 
   return (
-      <BrowserRouter>
-        <Header/>
-        <UserNameModal/>
-        <MainLayout/>
-      </BrowserRouter>
+    <BrowserRouter>
+      <Header2 />
+      <MainLayout />
+    </BrowserRouter>
   )
 }
 

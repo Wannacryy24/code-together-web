@@ -1,0 +1,69 @@
+[
+  {
+    "event_name": "Logo Clicked",
+    "description": "User clicked the Code2gthr logo (usually to return to homepage)",
+    "properties": {
+      "source": "header",
+      "location": "String - current pathname (e.g. /features)"
+    }
+  },
+  {
+    "event_name": "Navigation Clicked",
+    "description": "User clicked a navigation link from header",
+    "properties": {
+      "link": "String - label of link (e.g. Home, Features, How it Works)",
+      "location": "String - current pathname before click"
+    }
+  },
+  {
+    "event_name": "Mobile Menu Toggled",
+    "description": "User opened or closed the mobile hamburger menu",
+    "properties": {
+      "state": "String - open or closed"
+    }
+  },
+  {
+    "event_name": "Start Collaborating Clicked",
+    "description": "Guest clicked 'Start Collaborating' from mobile menu",
+    "properties": {
+      "source": "mobileMenu",
+      "userLogged": "Boolean - is the user authenticated"
+    }
+  },
+  {
+    "event_name": "Sign In Clicked",
+    "description": "User clicked 'Sign In' from mobile menu",
+    "properties": {
+      "source": "mobileMenu"
+    }
+  },
+  {
+    "event_name": "User Dropdown Opened",
+    "description": "Authenticated user opened avatar dropdown menu",
+    "properties": {
+      "userName": "String - user's name or display name"
+    }
+  },
+  {
+    "event_name": "Logout Clicked",
+    "description": "User clicked logout from dropdown or mobile menu",
+    "properties": {
+      "location": "String - pathname at time of logout"
+    }
+  },
+  {
+    "event_name": "Theme Toggled",
+    "description": "User switched theme between light and dark mode",
+    "properties": {
+      "theme": "String - dark or light",
+      "source": "String - where toggle was used (dropdown, mobile)"
+    }
+  },
+  {
+    "event_name": "Sign In As Guest Clicked",
+    "description": "Guest clicked 'Sign in as Guest' button in header",
+    "properties": {
+      "location": "String - current pathname"
+    }
+  }
+]

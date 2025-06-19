@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  font-family: 'Inter', sans-serif;
+  justify-content: center;
+  padding-bottom: 2rem;
+}
+
+/* Base Button Style */
+.btn {
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.8rem 1.8rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  white-space: nowrap;
+}
+
+/* Solid Green Button */
+.btn-primary {
+  background-color: var(--logo-color);
+  color: #000;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: var(--logo-color);
+}
+
+/* Outlined Button */
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid var(--logo-color);
+  color: var(--main-white);
+}
+
+.btn-outline:hover {
+  background-color: var(--logo-color);
+  color: #000;
+}
+
+/* Text Button (Playground) */
+.btn-text {
+  background: none;
+  border: none;
+  color: var(--main-white);
+  font-weight: 500;
+  padding: 0.8rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.btn-text .arrow {
+  font-size: 1.2rem;
+  display: inline-block;
+  transition: transform 0.2s ease-in-out;
+}
+
+.btn-text:hover .arrow {
+  transform: translateX(4px);
+}
+
+
+@media (max-width: 768px) {
+    .button-group{
+      display:  flex;
+      flex-direction: column;
+      justify-content: center;      
+    }
+}

@@ -1,0 +1,26 @@
+.page-not-found-div{
+    width: 100vw;
+    height: 88vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+}
+
+.page-not-found-img-div img{
+    height: 40vh;
+    
+}
+
+.page-not-found-div h1{
+    color: var(--logo-color);
+    font-size: 3rem;
+    font-weight: 300;
+}
+
+.page-not-found-div p{
+    color: var(--main-white);
+    font-size: large;
+    letter-spacing: 1.25px;
+}

@@ -1,0 +1,30 @@
+.new-web-player-custom-div{
+    width: 100%;
+    height: 90vh;
+    display: flex;
+}
+
+.rr-player{
+    width: 100% !important;
+    height: 90vh !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-direction: column !important;
+}
+
+.rr-player__frame{
+    height: 90vh !important;
+    width: 100% !important;
+    width: 100% !important;
+}
+
+.replayer-wrapper{
+    border: 10px solid pink;
+    height: 70vh !important;
+    width: 100vw !important;
+    transform: none !important;
+    translate: none !important;
+    display: flex !important;
+    
+}

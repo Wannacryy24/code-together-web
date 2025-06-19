@@ -1,0 +1,69 @@
+{
+  "events": [
+    {
+      "event_name": "Page View",
+      "description": "User visited a page",
+      "properties": {
+        "page_name": "String - Route or logical name (e.g., /editor/:id)",
+        "path": "String - Exact pathname (e.g., /editor/abc123)",
+        "distinct_id": "String - User ID or anonymous",
+        "timestamp": "ISO String - Timestamp of page view"
+      }
+    },
+    {
+      "event_name": "Room Created",
+      "description": "Host created a new code room",
+      "properties": {
+        "room_id": "String - Unique room ID",
+        "host_id": "String - Supabase user ID",
+        "is_private": "Boolean - If the room is private",
+        "timestamp": "ISO String - Creation time"
+      }
+    },
+    {
+      "event_name": "Login Modal Triggered",
+      "description": "User triggered login modal (guest trying to access)",
+      "properties": {
+        "source": "String - Trigger source (e.g., onShareClick, editorEntry)",
+        "timestamp": "ISO String"
+      }
+    },
+    {
+      "event_name": "Joined Room",
+      "description": "User entered an editor room",
+      "properties": {
+        "room_id": "String - Room ID",
+        "user_id": "String - Supabase user ID or guest",
+        "role": "String - 'host' or 'guest'",
+        "timestamp": "ISO String"
+      }
+    },
+    {
+      "event_name": "Shared Recording Viewed",
+      "description": "Someone viewed a shared session recording",
+      "properties": {
+        "token": "String - Shared recording token",
+        "timestamp": "ISO String"
+      }
+    },
+    {
+      "event_name": "Book Demo Clicked",
+      "description": "User clicked Book a Demo button",
+      "properties": {
+        "location": "String - Where the button was clicked (e.g., Homepage)",
+        "timestamp": "ISO String"
+      }
+    },
+    {
+      "event_name": "Editor Action",
+      "description": "User performed an action inside editor",
+      "properties": {
+        "room_id": "String - Room ID",
+        "user_id": "String - Supabase user ID",
+        "action_type": "String - e.g., 'change_language', 'change_theme', 'code_change'",
+        "value": "Optional - Extra details depending on action",
+        "timestamp": "ISO String"
+      }
+    }
+  ]
+}

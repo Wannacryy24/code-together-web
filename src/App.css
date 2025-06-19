@@ -1,18 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+* {
+  font-family: 'Inter', sans-serif !important;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
-*{
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
+:root {
+  --logo-color:   #60b54b;
+  --main-white:   #DEFFDC;
+  --light-grey:   #212525;
+  --dull-green:   #859984;
+  --lemon-color:  #DCFF51;
+  --lemon-loght:  #F5FFCB;
+}
+
+[data-theme="default"] {
+  --logo-color:   #60b54b;
+  --main-white:   #DEFFDC;
+  --light-grey:   #212525;
+  --dull-green:   #859984;
+  --lemon-color:  #DCFF51;
+  --lemon-loght:  #F5FFCB;
+}
+
+[data-theme="cyberpunk"] {
+  --logo-color: #ff007c;
+  --main-white: #f5f5f5;
+  --light-grey: #1a1a1a;
+  --dull-green: #00fff7;
+  --lemon-color: #ffef00;
+  --lemon-loght: #ffedb3;
+}
+
+[data-theme="forest"] {
+  --logo-color: #2d6a4f;
+  --main-white: #e6ffe6;
+  --light-grey: #0f3d2e;
+  --dull-green: #52796f;
+  --lemon-color: #cad2c5;
+  --lemon-loght: #e9edc9;
+}
+
+[data-theme="solar-light"] {
+  --logo-color: #DCFF51;
+  --main-white:   #a8caf5;
+  --bg-color: #acacac;
+  --light-grey: #eee8d5;
+  --dull-green: #93a1a1;
+  --lemon-color: #b58900;
+  --lemon-loght: #fef6c2;
+}
+
+[data-theme="lavender"] {
+  --logo-color: #8e44ad;
+  --main-white: #f5e6ff;
+  --light-grey: #2c2c54;
+  --dull-green: #a29bfe;
+  --lemon-color: #fd79a8;
+  --lemon-loght: #ffeaa7;
 }
 
 
+[data-theme="contrast-dark"] {
+  --logo-color: #F1F1F1;        /* Softer than pure white */
+  --main-white: #cf9191;        /* High contrast, easy on the eyes */
+  --light-grey: #1A1A1A;        /* Deep grey for backgrounds */
+  --dull-green: #7FB77E;        /* Soft muted green, gentle on dark backgrounds */
+  --lemon-color: #FFD93D;       /* Warm yellow, good contrast with dark */
+  --lemon-light: #2C2C2C;       /* Dark charcoal grey for light contrast items */
+}
+
+.light-green-span {
+  color: var(--main-white);
+}
+
+.dark-green-span {
+  color: var(--logo-color);
+}
+
+.dull-green-color {
+  color: var(--dull-green);
+}
+
+.light-green-color {
+  color: var(--main-white);
+}
 
 .remote-cursor {
   position: absolute;
-  border-left: 2px solid rgb(0, 149, 255); /* Can be dynamically set per user */
+  border-left: 2px solid rgb(0, 149, 255);
+  /* Can be dynamically set per user */
   height: 100%;
   margin-left: -1px;
   z-index: 1000;
@@ -20,7 +104,7 @@ html {
 }
 
 .remote-selection {
-  background-color: rgba(255, 0, 0, 0.3); 
+  background-color: rgba(255, 0, 0, 0.3);
   border-radius: 2px;
 }
 
@@ -33,7 +117,8 @@ html {
   white-space: nowrap;
   pointer-events: none;
   z-index: 1000;
-  background-color: rgba(0, 123, 255, 0.1); /* light blue */
+  background-color: rgba(0, 123, 255, 0.1);
+  /* light blue */
   color: #007bff;
   border: 1px solid #007bff;
   border-radius: 3px;
@@ -70,7 +155,10 @@ html {
   z-index: 10;
 }
 
-
+.editor-main-div {
+  height: 88vh;
+  overflow: hidden;
+}
 
 /* UserNameMOdalCss */
 
@@ -185,8 +273,19 @@ html {
     opacity: 0;
     transform: translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+
+
+
+
+
+.replayer-wrapper {
+  top: 0% !important;
+  left: 0% !important;
 }

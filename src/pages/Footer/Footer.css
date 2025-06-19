@@ -1,91 +1,178 @@
 .footer {
-  background-color: #111827;
-  color: #d1d5db;
-  padding: 3rem 1rem;
-  margin-top: 4rem;
-  text-align: center;
+  margin-top: 10vh;
+  color: #ccc;
+  padding: 4rem 2rem;
+  font-family: 'Inter', sans-serif;
 }
 
-.footer-container {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.footer-newsletter {
-  margin-bottom: 2rem;
-}
-
-.footer-newsletter h2 {
-  font-size: 1.5rem;
-  color: #fff;
-  font-weight: bold;
-}
-
-.footer-newsletter p {
-  font-size: 1rem;
-  color: #9ca3af;
-  margin-bottom: 1rem;
-}
-
-.footer-form {
+.footer-main {
   display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-}
-
-.footer-input {
-  padding: 0.5rem 1rem;
-  border-radius: 0.375rem;
-  border: none;
-  font-size: 1rem;
-  width: 250px;
-}
-
-.footer-button {
-  padding: 0.5rem 1.25rem;
-  border-radius: 0.375rem;
-  background-color: #2563eb;
-  color: #fff;
-  border: none;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
-.footer-links {
-  display: flex;
-  justify-content: center;
   flex-wrap: wrap;
   gap: 2rem;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+}
+
+.footer-column {
+  flex: 1 1 180px;
+  min-width: 150px;
+}
+
+.footer-column h4 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: var(--logo-color);
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column li {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  color: var(--main-white);
+  transition: color 0.2s ease-in-out;
+}
+
+.footer-column li:hover {
+  color: var(--logo-color);
+}
+
+.intro {
+  flex: 1 1 100%;
   margin-bottom: 2rem;
 }
 
-.footer-link {
-  color: #d1d5db;
-  text-decoration: none;
-  font-size: 1rem;
+.footer-column.intro h3 {
+  font-size: 1.2rem;
+  color: var(--logo-color);
+}
+
+.footer-column.intro p {
+  font-size: 0.95rem;
+  margin: 0.5rem 0 1.5rem;
+  color: var(--main-white);
+}
+
+.footer-btn {
+  display: block;
+  margin-bottom: 1rem;
+  padding: 0.6rem 1rem;
+  background-color: #222;
+  border: 1px solid var(--logo-color);
+  color: var(--logo-color);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  width: fit-content;
+  transition: all 0.2s ease-in-out;
+}
+
+.footer-btn:hover {
+  background-color: var(--logo-color);
+  color: #000;
+}
+
+.footer-btn.dark {
+  background-color: #111;
+  color: #fff;
+  border: none;
+}
+
+.footer-btn.dark:hover {
+  background-color: var(--logo-color);
+  color: #000;
+}
+
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #222;
+  padding-top: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--main-white);
 }
 
 .footer-icons {
   display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.footer-icon-link {
-  color: #d1d5db;
-  text-decoration: none;
-  display: inline-flex;
   align-items: center;
 }
 
-.footer-copyright {
-  font-size: 0.875rem;
-  color: #9ca3af;
+.footer-icons svg,
+.icon {
+  width: 24px;
+  height: 24px;
+  color: #ccc;
+  margin-left: 1rem;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
 }
 
-.footer-icons a:hover{
-    transform: scale(1.5);
-    transition: 0.3s ease-in-out;
+.footer-icons svg:hover,
+.icon:hover {
+  color: #00ffa3;
+}
+
+.footer-right-div {
+  display: flex;
+  flex-direction: row;
+}
+
+/* Media Queries */
+
+/* For screens >= 1024px */
+@media (min-width: 1024px) {
+  .intro {
+    flex: 0 0 30vw;
+    max-width: 30vw;
+  }
+
+  .footer-right-div {
+    flex: 1;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between;
+  }
+}
+
+/* For screens <= 768px */
+@media (max-width: 768px) {
+  .footer-right-div {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .footer-column h4 {
+    font-size: 1.25rem;
+  }
+
+  .footer-column ul li {
+    font-size: 1rem;
+  }
+
+  .footer-column.intro h3 {
+    font-size: 2rem;
+  }
+
+  .footer-column.intro p {
+    font-size: 1.2rem;
+  }
+
+  .footer-bottom {
+    gap: 2rem;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-icons {
+    width: 100%;
+    justify-content: center;
+  }
 }

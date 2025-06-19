@@ -1,12 +1,10 @@
-
 .code-languages-container {
-  background-color: #ffffff;
-  color: #000000;
+  color: var(--main-white);
   font-family: sans-serif;
-  padding: 40px 80px;
+  padding: 10vh 5vw;
   display: flex;
   flex-wrap: wrap;
-  justify-content:space-around;
+  justify-content: space-around;
 }
 
 .description {
@@ -34,6 +32,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  color: var(--logo-color);
 }
 
 .language-icon {
@@ -45,6 +44,15 @@
   font-size: 1rem;
 }
 
-.language-item img{
+.language-item img {
   height: 3rem;
+}
+
+@media (max-width: 768px) {
+  .languages-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(120px, 1fr));
+    gap: 0px 2rem;
+    margin-top: 20px;
+  }
 }
